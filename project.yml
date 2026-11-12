@@ -14,10 +14,15 @@ targets:
     type: application
     platform: iOS
     sources:
-      - App
-      - Shared
+      - path: LyricDashApp.swift
+      - path: ContentView.swift
+      - path: KeepAlive.swift
+      - path: LRCParser.swift
+      - path: LyricsEngine.swift
+      - path: LyricsService.swift
+      - path: LyricsAttributes.swift
     info:
-      path: App/Info.plist
+      path: AppInfo.plist
       properties:
         CFBundleDisplayName: LyricDash
         CFBundleShortVersionString: "1.1"
@@ -37,10 +42,10 @@ targets:
     type: app-extension
     platform: iOS
     sources:
-      - Widget
-      - Shared
+      - path: LyricDashWidget.swift
+      - path: LyricsAttributes.swift
     info:
-      path: Widget/Info.plist
+      path: WidgetInfo.plist
       properties:
         CFBundleDisplayName: LyricDash
         CFBundleShortVersionString: "1.1"
