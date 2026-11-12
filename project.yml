@@ -1,0 +1,58 @@
+name: LyricDash
+options:
+  bundleIdPrefix: com.ammar
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.1"
+    CURRENT_PROJECT_VERSION: "2"
+    TARGETED_DEVICE_FAMILY: "1"
+targets:
+  LyricDash:
+    type: application
+    platform: iOS
+    sources:
+      - App
+      - Shared
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: LyricDash
+        CFBundleShortVersionString: "1.1"
+        CFBundleVersion: "2"
+        UILaunchScreen: {}
+        NSSupportsLiveActivities: true
+        NSSupportsLiveActivitiesFrequentUpdates: true
+        NSAppleMusicUsageDescription: "LyricDash reads what's playing in Apple Music so it can show the lyrics."
+        UIBackgroundModes: [audio]
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ammar.lyricdash
+    dependencies:
+      - target: LyricDashWidget
+  LyricDashWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - Widget
+      - Shared
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: LyricDash
+        CFBundleShortVersionString: "1.1"
+        CFBundleVersion: "2"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ammar.lyricdash.widget
+schemes:
+  LyricDash:
+    build:
+      targets:
+        LyricDash: all
+        LyricDashWidget: all
